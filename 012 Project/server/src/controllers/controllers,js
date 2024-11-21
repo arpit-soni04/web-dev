@@ -1,6 +1,10 @@
 // admin controllers
-import { testAdmin } from "./admin-panel/adminController";
+import { 
+    adminLogin, 
+    testAdmin 
+} from "./admin-panel/adminController";
 
 module.exports = {
-    testAdmin
+    testAdmin,
+    adminLogin,
 }

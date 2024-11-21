@@ -82,7 +82,7 @@ const AddPCategory = () => {
           </div>
           <div className="w-full my-[20px] ">
             <button type="submit" className="bg-[#5351c9] rounded-md text-white w-[100px] h-[35px]">
-              Add Size
+              Add Category
             </button>
           </div>
         </form>

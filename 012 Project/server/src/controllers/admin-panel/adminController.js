@@ -11,7 +11,7 @@ const registerAdmin = async(req, res)=>{
         if(ifAdmin) return console.log(ifAdmin);
 
         const data = new Admin({
-            name: process.env.ADMINEMAIL,
+            email: process.env.ADMINEMAIL,
             password: process.env.ADMINPASSWORD
         });
 
@@ -24,8 +24,29 @@ const registerAdmin = async(req, res)=>{
     }
 }
 
+const adminLogin = async(req, res)=>{
+    try{
+        
+        const ifAdmin = await Admin.findOne({email: req.body.email});
+
+        if (!ifAdmin) return res.status(403).json({message: 'invalid email'});
+
+        if(ifAdmin.password !== req.body.password) return res.status(400).json({message: 'invalid password'});
+
+        const {password, ...data} = ifAdmin._doc;
+
+        console.log(data);
+
+        res.status(200).json({message: 'success', data});
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).json({message: 'ineternal sever error'});
+    }
+}
 
 module.exports = {
     testAdmin,
-    registerAdmin
+    registerAdmin,
+    adminLogin
 }

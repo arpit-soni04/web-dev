@@ -38,6 +38,7 @@ import ViewSlider from "./Pages/ViewSlider";
 import ForgotPassword from "./Pages/ForgotPassword";
 import ViewColor from "./Pages/ViewColor";
 import UpdateColor from "./Pages/UpdateColor";
+import 'react-toastify/dist/ReactToastify.css';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const routes = createBrowserRouter(
   createRoutesFromElements([
